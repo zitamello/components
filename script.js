@@ -109,6 +109,34 @@ tabsContainer.addEventListener('click', function(e){
     tabs.forEach(tab => tab.classList.remove('operations__tab--active'));
     operationsContent.forEach(content => content.classList.remove('operations__content--active'));
 
+    clicked.classList.add('operations__tab--active');
+
     //Activate content area
     document.querySelector(`.operations__content--${clicked.dataset.tab}`).classList.add('operations__content--active');
 })
+
+//MENU FADE ANIMATION
+
+const nav = document.querySelector('.nav');
+
+const handlerOverFunction = function(e, opacity){
+    if(e.target.classList.contains('nav__link')){
+        const overed = e.target;
+        const sibling = overed.closest('.nav').querySelectorAll('.nav__link');
+        const logo  = overed.closest('.nav').querySelector('img');
+        const brand = overed.closest('.nav').querySelector('h2');
+        
+
+        sibling.forEach(el => {
+            if(el !== overed) el.style.opacity = this;
+        });
+        logo.style.opacity = this;
+        brand.style.opacity = this;
+
+    }
+}
+
+//USING BIND to pass arguements to event handlers
+nav.addEventListener('mouseover', handlerOverFunction.bind(0.5));
+
+nav.addEventListener('mouseout', handlerOverFunction.bind(1.0));
