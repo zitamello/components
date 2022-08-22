@@ -140,3 +140,16 @@ const handlerOverFunction = function(e, opacity){
 nav.addEventListener('mouseover', handlerOverFunction.bind(0.5));
 
 nav.addEventListener('mouseout', handlerOverFunction.bind(1.0));
+
+
+//sticky navigation 
+
+const initialCoords = section1.getBoundingClientRect();
+
+window.addEventListener('scroll', function(e){
+    if(window.scrollY > initialCoords.top){
+        nav.classList.add('sticky')
+    }else {
+        nav.classList.remove('sticky');
+    }
+})
