@@ -1,5 +1,6 @@
 //sticky navigation 
 
+//old style
 const initialCoords = section1.getBoundingClientRect();
 
 window.addEventListener('scroll', function(e){
@@ -9,3 +10,5 @@ window.addEventListener('scroll', function(e){
         nav.classList.remove('sticky');
     }
 })
+
+//new refactory
